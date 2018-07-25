@@ -46,20 +46,26 @@
 
     </FrameLayout>
 
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/zone_time"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/margin"
+        style="@style/SingleLine"
+        />
     <TextView
         android:id="@+id/tv_zone_time"
+        style="@style/SingleLine"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_margin="8dp"
-        android:layout_weight="1"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/alarm_button_ensemble"
-        tools:text="15:32"
         android:layout_gravity="center_horizontal"
-        android:text="@string/wakeup_zonetime_unset"/>
+        android:layout_marginTop="0dp"
+        android:layout_weight="1"
+        android:text="@string/wakeup_zonetime_unset"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+        tools:text="15:32"
+        />
+
 
 </LinearLayout>

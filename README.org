@@ -2,6 +2,8 @@
   App that shows you the solar time at your location.
 
   You can also set an alarm at a solar time of your choosing.
+** acknowledgement
+   This app was created during the Android Udacity Scholarship by Google.
 ** uses
    - https://android.googlesource.com/platform/frameworks/base/+/483f3b06ea84440a082e21b68ec2c2e54046f5a6/services/java/com/android/server/TwilightCalculator.java
    - https://github.com/trikita/talalarmo/tree/master/src/main/java/trikita/talalarmo/alarm

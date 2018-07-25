@@ -11,4 +11,5 @@
     <string name="alarm_clock_image">alarm clock</string>
     <string name="click_to_set_alarm">click to set alarm</string>
     <string name="click_to_clear_alarm">click to clear alarm</string>
+    <string name="zone_time">zone time</string>
 </resources>

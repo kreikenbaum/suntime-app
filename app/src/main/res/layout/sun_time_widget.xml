@@ -20,9 +20,7 @@
         android:layout_gravity="center_horizontal"
         android:format24Hour="HH"
         android:paddingTop="2dp"
-        android:lineSpacingExtra="0dp"
-        android:lineSpacingMultiplier="0"
-        android:includeFontPadding="false"
+        style="@style/SingleLine"
         />
 
     <TextClock
@@ -34,9 +32,7 @@
         tools:text="52"
         android:layout_gravity="center_horizontal"
         android:format24Hour="mm"
-        android:lineSpacingExtra="0dp"
-        android:lineSpacingMultiplier="0"
-        android:includeFontPadding="false"
+        style="@style/SingleLine"
         />
 
 </LinearLayout>
