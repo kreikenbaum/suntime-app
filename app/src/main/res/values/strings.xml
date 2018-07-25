@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">SunTime</string>
+    <string name="action_settings">Settings</string>
+    <string name="half_sun">half sun</string>
+    <string name="half_clock">half clock</string>
+    <string name="title_activity_sun_wakeup">SunWakeupActivity</string>
+    <string name="sun_alarm">sun containing the sun-date</string>
+    <string name="permission_denied">No location permission</string>
+    <string name="wakeup_suntime_unset">set alarm</string>
+    <string name="wakeup_zonetime_unset">none set</string>
+    <string name="alarm_clock_image">alarm clock</string>
+    <string name="click_to_set_alarm">click to set alarm</string>
+    <string name="click_to_clear_alarm">click to clear alarm</string>
+</resources>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="@dimen/margin"
+    android:layout_marginRight="@dimen/margin"
+    android:layout_marginTop="@dimen/margin"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".SunWakeupActivity"
+    tools:showIn="@layout/activity_sun_wakeup">
+
+    <FrameLayout
+        android:id="@+id/alarm_button_ensemble"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteY="0dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/click_to_set_alarm"
+            android:onClick="selectAlarm"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/ic_circle_yellow_sun_v1" />
+
+        <TextView
+            android:id="@+id/tv_alarm_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/transparent"
+            android:contentDescription="@string/sun_alarm"
+            android:gravity="center"
+            android:text="@string/wakeup_suntime_unset"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+            android:textColor="@color/colorPrimary"
+            tools:text="13:52" />
+
+
+    </FrameLayout>
+
+
+    <TextView
+        android:id="@+id/tv_zone_time"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_margin="8dp"
+        android:layout_weight="1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/alarm_button_ensemble"
+        tools:text="15:32"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/wakeup_zonetime_unset"/>
+
+</LinearLayout>
