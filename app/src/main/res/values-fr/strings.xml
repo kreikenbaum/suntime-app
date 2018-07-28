@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="half_sun">demi-soleil</string>
+    <string name="sun_alarm">soleil contenant le temps</string>
+    <string name="zone_time">temps de zone</string>
+    <string name="app_name">Temps solaire</string>
+    <string name="action_settings">Configuration</string>
+    <string name="half_clock">demi-horloge</string>
+    <string name="title_activity_sun_wakeup">Réveil solaire</string>
+    <string name="alarm_clock_image">réveil</string>
+    <string name="wakeup_suntime_unset">regler le réveil</string>
+    <string name="wakeup_zonetime_unset">pas de regle</string>
+    <string name="click_to_set_alarm">cliquez pour regler le réveil</string>
+    <string name="click_to_clear_alarm">cliquez pour arrêter le réveil</string>
+    <string name="permission_denied">manque la permissions de localiser</string>
+</resources>

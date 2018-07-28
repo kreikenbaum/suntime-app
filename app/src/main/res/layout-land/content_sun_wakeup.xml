@@ -1,63 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/margin"
-    android:orientation="horizontal"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".SunWakeupActivity"
-    tools:showIn="@layout/activity_sun_wakeup">
+    tools:showIn="@layout/activity_sun_wakeup"
+    >
 
-    <FrameLayout
-        android:id="@+id/alarm_button_ensemble"
+    <ImageView
+        android:id="@+id/iv_sun"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        tools:layout_editor_absoluteY="0dp">
+        android:layout_margin="@dimen/margin"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/click_to_set_alarm"
+        android:elevation="4dp"
+        android:onClick="selectAlarm"
+        android:scaleType="centerCrop"
+        android:translationZ="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_circle_yellow_sun_v1" />
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_margin="0dp"
-            android:adjustViewBounds="true"
-            android:contentDescription="@string/click_to_set_alarm"
-            android:onClick="selectAlarm"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/ic_circle_yellow_sun_v1" />
-
-        <TextView
-            android:id="@+id/tv_alarm_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/transparent"
-            android:contentDescription="@string/sun_alarm"
-            android:layout_gravity="center"
-            android:text="@string/wakeup_suntime_unset"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display3"
-            android:textColor="@color/colorPrimary"
-            tools:text="13:52" />
-
-
-    </FrameLayout>
-
+    <TextView
+        android:id="@+id/tv_alarm_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/transparent"
+        android:contentDescription="@string/sun_alarm"
+        android:gravity="center"
+        android:text="@string/wakeup_suntime_unset"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+        android:textColor="@color/colorPrimary"
+        tools:text="13:52"
+        app:layout_constraintTop_toTopOf="@id/iv_sun"
+        app:layout_constraintLeft_toLeftOf="@id/iv_sun"
+        app:layout_constraintRight_toRightOf="@id/iv_sun"
+        app:layout_constraintBottom_toBottomOf="@id/iv_sun"
+        />
 
     <TextView
         android:id="@+id/tv_zone_time"
+        style="@style/SingleLine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:text="@string/wakeup_zonetime_unset"
         android:textAppearance="@style/TextAppearance.AppCompat.Display3"
-        android:layout_gravity="center_vertical"
-        tools:text="15:32"
-        android:text="@string/wakeup_zonetime_unset"/>
+        app:layout_constraintLeft_toRightOf="@id/iv_sun"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:text="15:32" />
 
-</LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/zone_time"
+        style="@style/SingleLine"
+        android:layout_marginTop="0dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_zone_time"
+        app:layout_constraintLeft_toLeftOf="@id/tv_zone_time"
+        app:layout_constraintRight_toRightOf="@id/tv_zone_time"
+        />
+
+</android.support.constraint.ConstraintLayout>

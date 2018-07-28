@@ -4,4 +4,5 @@
     <color name="colorPrimaryDark">#FFa10f</color> <!-- TODO -->
     <color name="colorAccent">#003df0</color> <!-- TODO -->
     <color name="colorShade">#33003df0</color>
+    <color name="colorSecondary">#737373</color> <!-- TODO: set dynamically from zone time text -->
 </resources>

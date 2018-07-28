@@ -21,11 +21,12 @@ import java.util.TimeZone;
 
 public class SunWakeupActivity extends AppCompatActivity
         implements TimePickerDialog.OnTimeSetListener {
-    private TextView zoneTime;
+    private CoordinatorLayout layout;
     private TextView sunTime;
+    private TextView zoneName;
+    private TextView zoneTime;
     private LocationCache locationCache;
     private Alarm alarm;
-    private CoordinatorLayout layout;
 
 
     @Override
@@ -33,10 +34,11 @@ public class SunWakeupActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sun_wakeup);
         Toolbar toolbar = findViewById(R.id.toolbar);
-        zoneTime = findViewById(R.id.tv_zone_time);
-        sunTime = findViewById(R.id.tv_alarm_time);
-        locationCache = LocationCache.getInstance(this);
         layout = findViewById(R.id.main_wakeup_layout);
+        sunTime = findViewById(R.id.tv_alarm_time);
+        zoneTime = findViewById(R.id.tv_zone_time);
+        zoneName = findViewById(R.id.tv_zone_name);
+        locationCache = LocationCache.getInstance(this);
         alarm = Alarm.getInstance(this);
 
         setSupportActionBar(toolbar);
@@ -48,6 +50,7 @@ public class SunWakeupActivity extends AppCompatActivity
                 alarm.setTime(SunWakeupActivity.this, -1, -1);
                 zoneTime.setText(R.string.wakeup_zonetime_unset);
                 sunTime.setText(R.string.wakeup_suntime_unset);
+                zoneName.setText(R.string.zone_time);
             }
         });
     }
@@ -74,12 +77,14 @@ public class SunWakeupActivity extends AppCompatActivity
         showTimes();
         Snackbar.make(layout,
                       "Alarm set to " + alarm.toZoneTimeString()
-                      + " (ZoneTime)",
-                      Snackbar.LENGTH_LONG).show();
+                      //                      + " (" + getResources().getString(R.string.zone_time) + ")",
+                      + " (" + TimeZone.getDefault().getID() + ")",
+                      Snackbar.LENGTH_SHORT).show();
     }
 
     private void showTimes() {
         sunTime.setText(alarm.toSolarTimeString());
+        zoneName.setText(TimeZone.getDefault().getID());
         zoneTime.setText(alarm.toZoneTimeString());
     }
 }

@@ -46,7 +46,9 @@
         <activity
             android:name=".SunWakeupActivity"
             android:label="@string/title_activity_sun_wakeup"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=".SunTimeActivity"
+            />
 
         <activity android:name=".alarm.AlarmActivity" android:theme="@style/AppTheme" />
         <receiver android:name=".alarm.AlarmReceiver"/>

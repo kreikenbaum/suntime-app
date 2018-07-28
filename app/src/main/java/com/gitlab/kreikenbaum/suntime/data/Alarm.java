@@ -13,6 +13,7 @@ import com.gitlab.kreikenbaum.suntime.alarm.AlarmReceiver;
 import com.gitlab.kreikenbaum.suntime.SunWakeupActivity;
 
 import java.util.Calendar;
+import java.util.Locale;
 import java.util.TimeZone;
 
 // level 2: list of alarms, maybe use room
@@ -83,14 +84,15 @@ public class Alarm {
         schedule(context);
     }
 
-    // TODO: should really use timeformat
+    // TODO: should really use DateFormat, but that needs a date, and a timezone,...
+    // TODO: test different locales (at least those supported)
     public String toSolarTimeString() {
-        return String.format("%d:%02d",
+        return String.format(Locale.getDefault(), "%d:%02d",
                              this.getSolarHour(), this.getSolarMinute());
     }
 
     public String toZoneTimeString() {
-        return String.format("%d:%02d",
+        return String.format(Locale.getDefault(), "%d:%02d",
                              this.getZoneHour(), this.getZoneMinute());
     }
 
@@ -124,8 +126,8 @@ public class Alarm {
             alarmManager.setAlarmClock(new AlarmManager.AlarmClockInfo(nextOccurrence.getTimeInMillis(),
                     pendingEdit), pendingAlarm);
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                alarmManager.setExact(
-                        AlarmManager.RTC_WAKEUP, nextOccurrence.getTimeInMillis(), pendingAlarm);
+            alarmManager.setExact(
+                    AlarmManager.RTC_WAKEUP, nextOccurrence.getTimeInMillis(), pendingAlarm);
         } else {
             alarmManager.set(
                     AlarmManager.RTC_WAKEUP, nextOccurrence.getTimeInMillis(), pendingAlarm);
