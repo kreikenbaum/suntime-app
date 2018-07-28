@@ -11,11 +11,11 @@ android {
     }
     compileSdkVersion 27
     defaultConfig {
-        applicationId "com.gitlab.kreikenbaum.suntime"
+        applicationId "com.gitlab.kreikenbaum.suntime-app"
         minSdkVersion 17
         targetSdkVersion 27
         versionCode 1
-        versionName "1.0.1"
+        versionName "1.0.3"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
@@ -37,9 +37,7 @@ android {
         paid {
             applicationIdSuffix ".paid"
         }
-        fdroid {
-            applicationIdSuffix ".fdroid"
-        }
+        fdroid
     }
     compileOptions {
         targetCompatibility 1.8
