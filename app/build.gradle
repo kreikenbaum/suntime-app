@@ -11,7 +11,7 @@ android {
     }
     compileSdkVersion 27
     defaultConfig {
-        applicationId "com.gitlab.kreikenbaum.suntime-app"
+        applicationId "com.gitlab.kreikenbaum.suntime"
         minSdkVersion 17
         targetSdkVersion 27
         versionCode 1
