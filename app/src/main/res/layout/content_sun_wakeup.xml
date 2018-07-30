@@ -24,8 +24,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_circle_sun_v2"
         android:tint="@color/colorPrimary"
-        android:elevation="4dp"
-        android:translationZ="4dp"
         />
 
     <TextView

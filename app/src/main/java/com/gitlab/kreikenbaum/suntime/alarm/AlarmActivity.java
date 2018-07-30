@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.PowerManager;
+import android.text.format.DateUtils;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -12,6 +13,8 @@ import android.view.WindowManager;
 import com.gitlab.kreikenbaum.suntime.R;
 
 public class AlarmActivity extends Activity {
+    private static long ALARM_DURATION = 10 * DateUtils.HOUR_IN_MILLIS;
+
     private PowerManager.WakeLock mWakeLock;
 
     @Override
@@ -20,7 +23,7 @@ public class AlarmActivity extends Activity {
         PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
         mWakeLock = pm.newWakeLock(PowerManager.SCREEN_BRIGHT_WAKE_LOCK |
                 PowerManager.ACQUIRE_CAUSES_WAKEUP | PowerManager.ON_AFTER_RELEASE, "AlarmActivity");
-        mWakeLock.acquire();
+        mWakeLock.acquire(ALARM_DURATION);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
 
         // fill status bar with a theme dark color on post-Lollipop devices
@@ -36,7 +39,7 @@ public class AlarmActivity extends Activity {
     protected void onResume() {
         super.onResume();
         if ( ! mWakeLock.isHeld() ) {
-            mWakeLock.acquire();
+            mWakeLock.acquire(ALARM_DURATION);
         }
     }
 

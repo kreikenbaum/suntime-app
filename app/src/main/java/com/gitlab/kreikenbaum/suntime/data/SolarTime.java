@@ -5,6 +5,7 @@ import android.text.format.DateUtils;
 import android.util.Log;
 
 import java.util.Calendar;
+import java.util.Locale;
 import java.util.TimeZone;
 
 /** helper for time based on position of sun at location */
@@ -95,7 +96,7 @@ public class SolarTime {
         } else {
             stringBuilder.append("-");
         }
-        stringBuilder.append(String.format("%02d:%02d",
+        stringBuilder.append(String.format(Locale.US, "%02d:%02d",
                         Math.abs(earlierThanUtcHours), Math.abs(earlierThanUtcMinutes)));
 //        Log.i(LOG_TAG, stringBuilder.toString());
         return stringBuilder.toString();
