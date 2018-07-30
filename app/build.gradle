@@ -37,7 +37,9 @@ android {
         paid {
             applicationIdSuffix ".paid"
         }
-        fdroid
+        fdroid {
+            applicationIdSuffix ".fdroid"
+        }
     }
     compileOptions {
         targetCompatibility 1.8
