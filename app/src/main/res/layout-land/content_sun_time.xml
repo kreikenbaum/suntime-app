@@ -1,68 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginLeft="@dimen/margin"
-    android:layout_marginRight="@dimen/margin"
-    android:layout_marginTop="@dimen/margin"
-    android:gravity="center_vertical"
-    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".SunTimeActivity"
     tools:showIn="@layout/activity_sun_time">
 
-    <FrameLayout
+    <ImageView
+        android:id="@+id/iv_sun"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/half_sun"
+        android:tint="@color/colorPrimary"
         android:layout_marginTop="@dimen/margin"
-        android:layout_weight="1">
+        android:layout_marginLeft="@dimen/margin"
+        android:layout_marginStart="@dimen/margin"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/iv_clock"
+        app:srcCompat="@drawable/ic_half_circle_black_cap_v2"
+        app:layout_constraintVertical_chainStyle="packed"
+        />
 
-        <ImageView
-            android:id="@+id/iv_sun"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="0dp"
-            android:contentDescription="@string/half_sun"
-            android:src="@drawable/half_sun" />
+    <TextClock
+        android:id="@+id/tc_suntime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
 
-        <TextClock
-            android:id="@+id/tc_suntime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display3"
-            android:textColor="@color/colorPrimary"
-            app:layout_constraintBottom_toBottomOf="@id/iv_sun"
-            app:layout_constraintLeft_toLeftOf="@id/iv_sun"
-            app:layout_constraintRight_toRightOf="@id/iv_sun"
-            tools:text="23:32" />
-    </FrameLayout>
+        android:layout_marginTop="8dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_sun"
+        app:layout_constraintEnd_toEndOf="@+id/iv_sun"
+        app:layout_constraintStart_toStartOf="@+id/iv_sun"
+        tools:text="23:32"
+        />
 
-    <FrameLayout
+    <ImageView
+        android:id="@+id/iv_clock"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_margin="0dp"
-        android:layout_weight="1">
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/half_clock"
+        android:tint="@color/colorSecondary"
+        android:layout_marginBottom="@dimen/margin"
+        android:layout_marginLeft="@dimen/margin"
+        android:layout_marginStart="@dimen/margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_sun"
+        app:srcCompat="@drawable/ic_half_circle_black_cup_v1" />
 
-        <ImageView
-            android:id="@+id/iv_clock"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="0dp"
-            android:contentDescription="@string/half_clock"
-            android:src="@drawable/half_clock" />
+    <TextClock
+        android:id="@+id/tc_zonetime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+        app:layout_constraintLeft_toLeftOf="@id/iv_clock"
+        app:layout_constraintRight_toRightOf="@id/iv_clock"
+        app:layout_constraintTop_toTopOf="@id/iv_clock"
+        android:textColor="@color/colorSecondary"
+        tools:text="15:32"
+        />
 
-        <TextClock
-            android:id="@+id/tc_zonetime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top|center_horizontal"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display3"
-            tools:text="15:32" />
-    </FrameLayout>
-
-
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

@@ -25,7 +25,9 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_circle_yellow_sun_v1" />
+        app:srcCompat="@drawable/ic_circle_sun_v2"
+        android:tint="@color/colorPrimary"
+        />
 
     <TextView
         android:id="@+id/tv_alarm_time"
@@ -56,9 +58,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        tools:text="15:32" />
+        tools:text="15:32"
+        android:textColor="@color/colorSecondary"
+        />
 
     <TextView
+        android:id="@+id/tv_zone_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/zone_time"
@@ -67,6 +72,7 @@
         app:layout_constraintTop_toBottomOf="@id/tv_zone_time"
         app:layout_constraintLeft_toLeftOf="@id/tv_zone_time"
         app:layout_constraintRight_toRightOf="@id/tv_zone_time"
+        android:textColor="@color/colorSecondary"
         />
 
 </android.support.constraint.ConstraintLayout>

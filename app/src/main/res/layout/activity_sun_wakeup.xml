@@ -29,7 +29,7 @@
         android:layout_height="@dimen/fab_size"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel"
+        app:srcCompat="@android:drawable/ic_menu_delete"
         android:contentDescription="@string/click_to_clear_alarm"
         />
 
