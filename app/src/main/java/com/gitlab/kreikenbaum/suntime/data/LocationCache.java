@@ -42,16 +42,14 @@ public class LocationCache {
 
 
     private LocationCache(Context context) {
-        Cursor cursor = context.getContentResolver().query(
-                LocationContract.LocationEntry.CONTENT_URI_LAST, null, null, null, null);
         location = new Location("stored");
-        try {
+        try (Cursor cursor = context.getContentResolver().query(
+                LocationContract.LocationEntry.CONTENT_URI_LAST, null, null, null, null)) {
             cursor.moveToFirst();
             location.setLatitude(cursor.getDouble(cursor.getColumnIndex(LocationContract.LocationEntry.COLUMN_LATITUDE)));
             location.setLongitude(cursor.getDouble(cursor.getColumnIndex(LocationContract.LocationEntry.COLUMN_LONGITUDE)));
-            cursor.close();
         } catch (CursorIndexOutOfBoundsException except) {
-            Log.w(LOG_TAG, "no location available, falling back to Berlin");
+            Log.w(LOG_TAG, "no location available, falling back to Berlin, trying IP address");
             location = fallbackLocation;
             new LoadGeoIp().execute();
         }
@@ -102,7 +100,7 @@ public class LocationCache {
                     newLocation.setLatitude(jsonObject.getDouble("latitude"));
                     newLocation.setLongitude(jsonObject.getDouble("longitude"));
                     LocationCache.this.location = newLocation;
-                    Log.i(LOG_TAG, "new location: " + newLocation);
+                    Log.i(LOG_TAG, "location from IP: " + newLocation);
                 }
             } catch (IOException e) {
                 e.printStackTrace();

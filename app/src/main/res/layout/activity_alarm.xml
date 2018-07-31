@@ -1,12 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:contentDescription="@string/alarm_clock_image"
-    android:gravity="center"
-    android:onClick="stopAlarm"
-    android:scaleType="fitCenter"
-    android:tint="@color/colorPrimary"
-    app:srcCompat="@android:drawable/ic_lock_idle_alarm"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/alarm_clock_image"
+        android:gravity="center"
+        android:scaleType="fitCenter"
+        android:tint="@color/colorPrimary"
+        app:srcCompat="@android:drawable/ic_lock_idle_alarm"
+        android:src="@android:drawable/ic_lock_idle_alarm"
+        android:onClick="stopAlarm"
     />
+<!-- TODO: slide to disable -->
+<!--    <SeekBar
+        android:id="@+id/sb_stop_alarm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="10000"
+        android:layout_margin="@dimen/margin"
+        />-->
+</LinearLayout>

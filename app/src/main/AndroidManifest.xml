@@ -50,7 +50,7 @@
             android:parentActivityName=".SunTimeActivity"
             />
 
-        <activity android:name=".alarm.AlarmActivity" android:theme="@style/AppTheme" />
+        <activity android:name=".alarm.AlarmActivity" android:theme="@style/AppTheme" android:exported="true"/>
         <receiver android:name=".alarm.AlarmReceiver"/>
         <receiver android:name=".alarm.BootReceiver">
             <intent-filter>
