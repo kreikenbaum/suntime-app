@@ -1,23 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--<color name="colorPrimaryLight">#ffb141</color>-->
-    <color name="colorPrimary">#FFC107</color>
-    <color name="colorPrimaryDark">#FFA000</color> <!-- mb change -->
+    <color name="colorPrimary">#ff9d0f</color>
+    <color name="colorPrimaryDark">#cd7900</color>
     <color name="colorAccent">#003df0</color>
     <color name="colorShade">#33003df0</color>
-    <color name="colorSecondary">#78909C</color>
+    <color name="colorSecondary">#006d8f</color>
 </resources>
-<!--
-
-    &lt;!&ndash;<color name="colorPrimaryLight">#ffb141</color>&ndash;&gt;
-<color name="colorPrimary">#ff9d0f</color>
-<color name="colorPrimaryDark">#cd7900</color>
-<color name="colorAccent">#0aab72</color>
-<color name="colorShade">#33003df0</color>
-<color name="colorSecondary">#2a22b2</color>-->
-
-
-<!--
-
-<color name="colorPrimary">#FFC107</color>
-<color name="colorPrimaryDark">#FFA000</color> &lt;!&ndash; mb change &ndash;&gt;-->
