@@ -2,5 +2,4 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="fab_size">56dp</dimen>
     <dimen name="margin">16dp</dimen>
-    <dimen name="widget_margin">8dp</dimen>
 </resources>
