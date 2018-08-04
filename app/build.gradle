@@ -3,9 +3,9 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         release_config {
-            keyAlias 'AL'
+            keyAlias 'alias'
             keyPassword 'password'
-            storeFile file("$rootProject.projectDir/keystore_password_password_alias_AL.jks")
+            storeFile file("$rootProject.projectDir/../key_michael_kreikenbaum_pw_password_alias_alias.jks")
             storePassword 'password'
         }
     }

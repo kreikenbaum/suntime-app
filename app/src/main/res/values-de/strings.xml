@@ -6,7 +6,7 @@
     <string name="title_activity_sun_wakeup">Sonnenwecker</string>
     <string name="sun_alarm">Sonne mit Sonnenzeit</string>
     <string name="permission_denied">Kein Zugriff auf Ort (Location)</string>
-    <string name="wakeup_suntime_unset">setze Wecker</string>
+    <string name="wakeup_suntime_unset">setze\nWecker</string>
     <string name="wakeup_zonetime_unset">nicht gesetzt</string>
     <string name="alarm_clock_image">Wecker</string>
     <string name="click_to_set_alarm">Klicke um Wecker zu setzen</string>
