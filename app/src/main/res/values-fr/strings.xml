@@ -13,4 +13,7 @@
     <string name="click_to_set_alarm">cliquez pour regler le réveil</string>
     <string name="click_to_clear_alarm">cliquez pour arrêter le réveil</string>
     <string name="permission_denied">manque la permissions de localiser</string>
+    <string name="location_unknown">location inconnu</string>
+    <string name="alarm_unknown_location">location inconnu, attendez s.v.p.</string>
+    <string name="alarm_set_to">Réveil reglé à</string>
 </resources>

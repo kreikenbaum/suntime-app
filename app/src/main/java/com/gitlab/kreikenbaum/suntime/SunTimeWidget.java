@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
 import android.util.Log;
+import android.view.View;
 import android.widget.RemoteViews;
 
 import com.gitlab.kreikenbaum.suntime.data.LocationCache;
@@ -21,11 +22,16 @@ public class SunTimeWidget extends AppWidgetProvider {
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                 int appWidgetId) {
         Log.i(LOG_TAG, "update widget " + appWidgetId);
-        Location location = LocationCache.getInstance(context).getLocation();
-        SolarTime solarTime = new SolarTime(location);
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.sun_time_widget);
-        views.setString(R.id.widget_1_hours, "setTimeZone", solarTime.toTimezoneString());
-        views.setString(R.id.widget_1_minutes, "setTimeZone", solarTime.toTimezoneString());
+        Location location = LocationCache.getInstance(context).getLocation();
+        if ( location != null ) {
+            SolarTime solarTime = new SolarTime(location);
+            views.setViewVisibility(R.id.tv_sunknown, View.GONE);
+            views.setViewVisibility(R.id.widget_1_hours, View.VISIBLE);
+            views.setViewVisibility(R.id.widget_1_minutes, View.VISIBLE);
+            views.setString(R.id.widget_1_hours, "setTimeZone", solarTime.toTimezoneString());
+            views.setString(R.id.widget_1_minutes, "setTimeZone", solarTime.toTimezoneString());
+        }
 
         Intent startSunActivity = new Intent(context, SunTimeActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(
