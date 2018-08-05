@@ -12,4 +12,7 @@
     <string name="click_to_set_alarm">click to set alarm</string>
     <string name="click_to_clear_alarm">click to clear alarm</string>
     <string name="zone_time">zone time</string>
+    <string name="location_unknown">location unknown</string>
+    <string name="alarm_unknown_location">please wait for location before setting alarm</string>
+    <string name="alarm_set_to">Alarm set to</string>
 </resources>

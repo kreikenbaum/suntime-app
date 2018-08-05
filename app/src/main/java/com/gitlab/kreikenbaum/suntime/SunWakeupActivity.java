@@ -75,11 +75,9 @@ public class SunWakeupActivity extends AppCompatActivity
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
         alarm.setTime(this, hourOfDay, minute); // registers alarm
         showTimes();
-        Snackbar.make(layout,
-                      "Alarm set to " + alarm.toZoneTimeString()
-                      //                      + " (" + getResources().getString(R.string.zone_time) + ")",
-                      + " (" + TimeZone.getDefault().getID() + ")",
-                      Snackbar.LENGTH_SHORT).show();
+        StringBuilder sb = new StringBuilder(getString(R.string.alarm_set_to));
+        sb.append(alarm.toZoneTimeString()).append(" (").append(TimeZone.getDefault().getID()).append(")");
+        Snackbar.make(layout, sb.toString(), Snackbar.LENGTH_SHORT).show();
     }
 
     private void showTimes() {

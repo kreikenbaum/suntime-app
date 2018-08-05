@@ -2,6 +2,7 @@
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_sun_time"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SunTimeActivity">
@@ -28,8 +29,8 @@
         android:layout_height="@dimen/fab_size"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_lock_idle_alarm"
         android:contentDescription="@string/click_to_set_alarm"
-        />
+        android:tint="@android:color/white"
+        app:srcCompat="@android:drawable/ic_lock_idle_alarm" />
 
 </android.support.design.widget.CoordinatorLayout>

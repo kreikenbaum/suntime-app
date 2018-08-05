@@ -9,16 +9,20 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.RemoteViews;
 import android.widget.TextClock;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mapzen.android.lost.api.LocationListener;
@@ -33,7 +37,9 @@ public class SunTimeActivity extends AppCompatActivity
     private static final String LOG_TAG = SunTimeActivity.class.getSimpleName();
     private static final int LOC_CODE = 1344;
 
+    private CoordinatorLayout layout;
     private TextClock sunTime;
+    private TextView sunknown;
     private SolarTime solarTime;
     private LostApiClient lostApiClient;
     private LocationCache locationCache;
@@ -46,15 +52,27 @@ public class SunTimeActivity extends AppCompatActivity
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        locationCache = LocationCache.getInstance(this);
+
+        layout = findViewById(R.id.layout_sun_time);
+        sunTime = findViewById(R.id.tc_suntime);
+        sunknown = findViewById(R.id.tv_suntime);
+
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SunTimeActivity.this, SunWakeupActivity.class));
+                Log.i(LOG_TAG, "location: " + locationCache.getLocation());
+                if ( locationCache.getLocation() == null ) {
+                    Snackbar.make(layout, R.string.alarm_unknown_location,
+                            Snackbar.LENGTH_SHORT).show();
+                } else {
+                    startActivity(new Intent(SunTimeActivity.this, SunWakeupActivity.class));
+                }
             }
         });
-        sunTime = findViewById(R.id.tc_suntime);
-        locationCache = LocationCache.getInstance(this);
+
     }
 
     @Override
@@ -138,10 +156,12 @@ public class SunTimeActivity extends AppCompatActivity
         LocationServices.FusedLocationApi.requestLocationUpdates(lostApiClient, request, this);
     }
 
-    private void updateWidget() {  //https://stackoverflow.com/questions/2929393
-        RemoteViews remoteViews = new RemoteViews(this.getPackageName(), R.layout.sun_time_widget);
-        ComponentName thisWidget = new ComponentName(this, SunTimeWidget.class);
-        AppWidgetManager.getInstance(this).updateAppWidget( thisWidget, remoteViews );
+    // https://stackoverflow.com/a/22209857/1587329
+    private void updateWidget() {
+        int[] ids = AppWidgetManager.getInstance(getApplication()).getAppWidgetIds(new ComponentName(getApplication(), SunTimeWidget.class));
+        SunTimeWidget myWidget = new SunTimeWidget();
+        myWidget.onUpdate(this, AppWidgetManager.getInstance(this),ids);
+
     }
 
     @Override
@@ -151,9 +171,15 @@ public class SunTimeActivity extends AppCompatActivity
 
     @Override
     public void onLocationChanged(Location location) {
+        if ( location == null ) {
+            Log.w(LOG_TAG, "location is null");
+            return;
+        }
         locationCache.setLocation(this, location);
         solarTime = new SolarTime(locationCache.getLocation());
+        sunknown.setVisibility(View.GONE);
         sunTime.setTimeZone(solarTime.toTimezoneString());
+        sunTime.setVisibility(View.VISIBLE);
         updateWidget();
     }
 }

@@ -22,6 +22,7 @@
         android:format24Hour="HH"
         android:paddingTop="2dp"
         style="@style/SingleLine"
+        android:visibility="gone"
         />
 
     <TextClock
@@ -34,6 +35,14 @@
         android:layout_gravity="center_horizontal"
         android:format24Hour="mm"
         style="@style/SingleLine"
+        android:visibility="gone"
+        />
+
+    <TextView
+        android:id="@+id/tv_sunknown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/location_unknown"
         />
 
 </LinearLayout>

@@ -37,6 +37,19 @@
         app:layout_constraintEnd_toEndOf="@+id/iv_sun"
         app:layout_constraintStart_toStartOf="@+id/iv_sun"
         tools:text="23:32"
+        android:visibility="gone"
+        />
+
+
+    <TextView
+        android:id="@+id/tv_suntime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_sun"
+        app:layout_constraintEnd_toEndOf="@+id/iv_sun"
+        app:layout_constraintStart_toStartOf="@+id/iv_sun"
+        android:textColor="@color/colorPrimary"
+        android:text="@string/location_unknown"
         />
 
     <ImageView
