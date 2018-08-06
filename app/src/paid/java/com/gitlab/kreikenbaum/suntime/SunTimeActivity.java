@@ -55,9 +55,9 @@ public class SunTimeActivity extends AppCompatActivity
 
         locationCache = LocationCache.getInstance(this);
 
-                       layout = findViewById(R.id.layout_sun_time);
-            sunTime = findViewById(R.id.tc_suntime);
-           sunknown = findViewById(R.id.tv_suntime);
+        layout = findViewById(R.id.layout_sun_time);
+        sunTime = findViewById(R.id.tc_suntime);
+        sunknown = findViewById(R.id.tv_suntime);
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -94,6 +94,8 @@ public class SunTimeActivity extends AppCompatActivity
 
         assertLocation();
     }
+
+
 
     // as of https://stackoverflow.com/a/29815513/1587329
     @Override
@@ -158,6 +160,12 @@ public class SunTimeActivity extends AppCompatActivity
         LocationServices.FusedLocationApi.requestLocationUpdates(apiClient, request, this);
     }
 
+
+    private void updateUi() {
+        sunknown.setVisibility(View.GONE);
+        sunTime.setTimeZone(solarTime.toTimezoneString());
+        sunTime.setVisibility(View.VISIBLE);
+    }
     // https://stackoverflow.com/a/22209857/1587329
     private void updateWidget() {
         int[] ids = AppWidgetManager.getInstance(getApplication()).getAppWidgetIds(new ComponentName(getApplication(), SunTimeWidget.class));
@@ -179,9 +187,7 @@ public class SunTimeActivity extends AppCompatActivity
         }
         locationCache.setLocation(this, location);
         solarTime = new SolarTime(locationCache.getLocation());
-        sunknown.setVisibility(View.GONE);
-        sunTime.setTimeZone(solarTime.toTimezoneString());
-        sunTime.setVisibility(View.VISIBLE);
+        updateUi();
         updateWidget();
     }
 

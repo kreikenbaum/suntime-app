@@ -32,8 +32,8 @@ import com.mapzen.android.lost.api.LostApiClient;
 import com.gitlab.kreikenbaum.suntime.data.LocationCache;
 import com.gitlab.kreikenbaum.suntime.data.SolarTime;
 
-public class SunTimeActivity extends AppCompatActivity
-        implements LostApiClient.ConnectionCallbacks, LocationListener {
+public class SunTimeActivity extends AppCompatActivity implements
+        LostApiClient.ConnectionCallbacks, LocationListener, LoadGeoIpTask.SunLocationListener {
     private static final String LOG_TAG = SunTimeActivity.class.getSimpleName();
     private static final int LOC_CODE = 1344;
 
@@ -57,7 +57,9 @@ public class SunTimeActivity extends AppCompatActivity
         layout = findViewById(R.id.layout_sun_time);
         sunTime = findViewById(R.id.tc_suntime);
         sunknown = findViewById(R.id.tv_suntime);
-
+        if (locationCache.getLocation() != null) {
+            solarTime = new SolarTime(locationCache.getLocation());
+        }
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -93,6 +95,16 @@ public class SunTimeActivity extends AppCompatActivity
         super.onStart();
 
         assertLocation();
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if ( locationCache.getLocation() != null ) {
+            updateUi();
+        }
     }
 
     // as of https://stackoverflow.com/a/29815513/1587329
@@ -156,6 +168,12 @@ public class SunTimeActivity extends AppCompatActivity
         LocationServices.FusedLocationApi.requestLocationUpdates(lostApiClient, request, this);
     }
 
+    private void updateUi() {
+        sunknown.setVisibility(View.GONE);
+        sunTime.setTimeZone(solarTime.toTimezoneString());
+        sunTime.setVisibility(View.VISIBLE);
+    }
+
     // https://stackoverflow.com/a/22209857/1587329
     private void updateWidget() {
         int[] ids = AppWidgetManager.getInstance(getApplication()).getAppWidgetIds(new ComponentName(getApplication(), SunTimeWidget.class));
@@ -173,13 +191,15 @@ public class SunTimeActivity extends AppCompatActivity
     public void onLocationChanged(Location location) {
         if ( location == null ) {
             Log.w(LOG_TAG, "location is null");
+            if (locationCache.getLocation() == null) {
+                Log.i(LOG_TAG, "ip location needed");
+                new LoadGeoIpTask().execute(this);
+            }
             return;
         }
         locationCache.setLocation(this, location);
         solarTime = new SolarTime(locationCache.getLocation());
-        sunknown.setVisibility(View.GONE);
-        sunTime.setTimeZone(solarTime.toTimezoneString());
-        sunTime.setVisibility(View.VISIBLE);
+        updateUi();
         updateWidget();
     }
 }
