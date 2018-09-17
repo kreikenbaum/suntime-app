@@ -45,7 +45,7 @@ public class LocationCache {
             tmp.setLongitude(cursor.getDouble(cursor.getColumnIndex(LocationContract.LocationEntry.COLUMN_LONGITUDE)));
             this.location = tmp;
         } catch (CursorIndexOutOfBoundsException except) {
-            Log.w(LOG_TAG, "no location available, falling back to Berlin, trying IP address");
+            Log.w(LOG_TAG, "no location available, trying IP address");
         }
     }
 
