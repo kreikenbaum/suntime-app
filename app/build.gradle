@@ -62,7 +62,6 @@ dependencies {
     freeImplementation 'com.google.android.gms:play-services-ads:15.0.1'
     implementation 'javax.json:javax.json-api:1.0'
     implementation 'com.squareup.okhttp3:okhttp:3.11.0'
-    // reactive location lib
 }
 
 configurations.all {
