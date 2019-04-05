@@ -21,7 +21,7 @@ public class SunTimeWidget extends AppWidgetProvider {
 
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                 int appWidgetId) {
-        Log.i(LOG_TAG, "update widget " + appWidgetId);
+        Log.d(LOG_TAG, "update widget " + appWidgetId);
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.sun_time_widget);
         Location location = LocationCache.getInstance(context).getLocation();
         if ( location != null ) {
@@ -31,6 +31,7 @@ public class SunTimeWidget extends AppWidgetProvider {
             views.setViewVisibility(R.id.widget_1_minutes, View.VISIBLE);
             views.setString(R.id.widget_1_hours, "setTimeZone", solarTime.toTimezoneString());
             views.setString(R.id.widget_1_minutes, "setTimeZone", solarTime.toTimezoneString());
+            Log.d(LOG_TAG, "with timeZone " + solarTime.toTimezoneString());
         }
 
         Intent startSunActivity = new Intent(context, SunTimeActivity.class);
