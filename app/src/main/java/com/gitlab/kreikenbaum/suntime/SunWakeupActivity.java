@@ -76,7 +76,12 @@ public class SunWakeupActivity extends AppCompatActivity
         alarm.setTime(this, hourOfDay, minute); // registers alarm
         showTimes();
         StringBuilder sb = new StringBuilder(getString(R.string.alarm_set_to));
-        sb.append(alarm.toZoneTimeString()).append(" (").append(TimeZone.getDefault().getID()).append(")");
+        sb.append(" ")
+            .append(alarm.toZoneTimeString())
+            .append(" ")
+            .append("(")
+            .append(TimeZone.getDefault().getID())
+            .append(")");
         Snackbar.make(layout, sb.toString(), Snackbar.LENGTH_SHORT).show();
     }
 
