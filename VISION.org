@@ -1,0 +1,13 @@
+* VISION
+** elevator pitch
+*** goal: everyone uses solar time for daily tasks (UTC for technical coordination)
+*** what do: create app that gives you solar time: 12 am is true noon when sun is highest
+*** USP: sleek material design to show you solar time, and wake up at certain solar time
+*** qstn: have you considered the health benefits of using solar-based time?
+*** Text
+    - numerous health hazards of time zone change
+    - why time zone
+    - use solar time: 12 am is when sun is highest
+    - possible due to technology
+    - easy-to use material design app that wakes you up at solar time of your choosing
+** 5 minute
