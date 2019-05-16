@@ -144,8 +144,7 @@ public class SunTimeActivity extends AppCompatActivity
         sunknown.setVisibility(View.GONE);
         sunTime.setTimeZone(solarTime.toTimezoneString());
         sunTime.setVisibility(View.VISIBLE);
-    }s
-    
+    }
     // https://stackoverflow.com/a/22209857/1587329
     private void updateWidget() {
         int[] ids = AppWidgetManager.getInstance(getApplication()).getAppWidgetIds(new ComponentName(getApplication(), SunTimeWidget.class));
