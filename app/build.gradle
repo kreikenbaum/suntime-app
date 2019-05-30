@@ -32,9 +32,6 @@ android {
     }
     flavorDimensions "default"
     productFlavors {
-        free {
-            applicationIdSuffix ".advertisement"
-        }
         paid {
             applicationIdSuffix ".paid"
         }
@@ -58,8 +55,6 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     fdroidImplementation 'com.mapzen.android:lost:3.0.2'
     paidImplementation 'com.google.android.gms:play-services-location:15.0.1'
-    freeImplementation 'com.google.android.gms:play-services-location:15.0.1'
-    freeImplementation 'com.google.android.gms:play-services-ads:15.0.1'
     implementation 'javax.json:javax.json-api:1.0'
     implementation 'com.squareup.okhttp3:okhttp:3.11.0'
 }
