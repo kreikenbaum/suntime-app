@@ -10,8 +10,10 @@ import com.gitlab.kreikenbaum.suntime.data.Alarm;
 public class BootReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-        if (Alarm.getInstance(context).isValid()) {
-            AlarmController.restartAlarm(context);
+        if (intent.getAction().equals(Intent.ACTION_BOOT_COMPLETED)) {
+            if (Alarm.getInstance(context).isValid()) {
+                AlarmController.restartAlarm(context);
+            }
         }
     }
 }
