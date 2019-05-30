@@ -21,10 +21,12 @@ package com.gitlab.kreikenbaum.suntime.provider;
 import android.net.Uri;
 import android.provider.BaseColumns;
 
+import com.gitlab.kreikenbaum.suntime.BuildConfig;
+
 public class LocationContract {
 
     // The authority, which is how your code knows which Content Provider to access
-    public static final String AUTHORITY = "com.gitlab.kreikenbaum.suntime";
+    public static final String AUTHORITY = BuildConfig.APPLICATION_ID + ".provider";
 
     // The base content URI = "content://" + <authority>
     public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + AUTHORITY);

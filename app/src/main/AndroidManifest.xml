@@ -44,7 +44,7 @@
 
         <provider
             android:name=".provider.LocationContentProvider"
-            android:authorities="com.gitlab.kreikenbaum.suntime"
+            android:authorities="${applicationId}.provider"
             android:exported="false" />
 
         <activity
