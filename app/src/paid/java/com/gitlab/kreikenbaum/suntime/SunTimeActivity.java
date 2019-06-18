@@ -38,33 +38,6 @@ public class SunTimeActivity extends MetaSuntimeActivity
     private GoogleApiClient apiClient;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sun_time);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        locationCache = LocationCache.getInstance(this);
-
-        layout = findViewById(R.id.layout_sun_time);
-        sunTime = findViewById(R.id.tc_suntime);
-        sunknown = findViewById(R.id.tv_suntime);
-
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if ( locationCache.getLocation() == null ) {
-                    Snackbar.make(layout, R.string.alarm_unknown_location,
-                                  Snackbar.LENGTH_SHORT).show();
-                } else {
-                    startActivity(new Intent(SunTimeActivity.this, SunWakeupActivity.class));
-                }
-            }
-        });
-    }
-
-    @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (requestCode!=LOC_CODE) {
             return;

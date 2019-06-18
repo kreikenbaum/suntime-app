@@ -1,10 +1,16 @@
 package com.gitlab.kreikenbaum.suntime;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.util.Log;
+import android.view.View;
 import android.widget.TextClock;
 import android.widget.TextView;
+import android.support.v7.widget.Toolbar;
 
 
 import com.gitlab.kreikenbaum.suntime.data.LocationCache;
@@ -23,6 +29,32 @@ public abstract class MetaSuntimeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // setContentView(R.layout.activity_meta_suntime);
+        setContentView(R.layout.activity_sun_time);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        locationCache = LocationCache.getInstance(this);
+
+        layout = findViewById(R.id.layout_sun_time);
+        sunTime = findViewById(R.id.tc_suntime);
+        sunknown = findViewById(R.id.tv_suntime);
+        if (locationCache.getLocation() != null) {
+            solarTime = new SolarTime(locationCache.getLocation());
+        }
+
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.i(LOG_TAG, "location: " + locationCache.getLocation());
+                if ( locationCache.getLocation() == null ) {
+                    Snackbar.make(layout, R.string.alarm_unknown_location,
+                            Snackbar.LENGTH_SHORT).show();
+                } else {
+                    startActivity(new Intent(MetaSuntimeActivity.this, SunWakeupActivity.class));
+                }
+            }
+        });
     }
 }
