@@ -1,5 +1,7 @@
 package com.gitlab.kreikenbaum.suntime;
 
+import android.appwidget.AppWidgetManager;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -73,5 +75,13 @@ public abstract class MetaSuntimeActivity extends AppCompatActivity {
         sunknown.setVisibility(View.GONE);
         sunTime.setTimeZone(solarTime.toTimezoneString());
         sunTime.setVisibility(View.VISIBLE);
+    }
+
+    // https://stackoverflow.com/a/22209857/1587329
+    protected void updateWidget() {
+        int[] ids = AppWidgetManager.getInstance(getApplication()).getAppWidgetIds(new ComponentName(getApplication(), SunTimeWidget.class));
+        SunTimeWidget myWidget = new SunTimeWidget();
+        myWidget.onUpdate(this, AppWidgetManager.getInstance(this),ids);
+
     }
 }

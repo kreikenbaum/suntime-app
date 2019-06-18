@@ -94,15 +94,6 @@ public class SunTimeActivity extends MetaSuntimeActivity
         LocationServices.FusedLocationApi.requestLocationUpdates(apiClient, request, this);
     }
 
-
-    // https://stackoverflow.com/a/22209857/1587329
-    private void updateWidget() {
-        int[] ids = AppWidgetManager.getInstance(getApplication()).getAppWidgetIds(new ComponentName(getApplication(), SunTimeWidget.class));
-        SunTimeWidget myWidget = new SunTimeWidget();
-        myWidget.onUpdate(this, AppWidgetManager.getInstance(this),ids);
-    }
-
-
     @Override
     public void onConnectionSuspended(int sth) {
         // pass
