@@ -68,4 +68,10 @@ public abstract class MetaSuntimeActivity extends AppCompatActivity {
 
     /** asserts location permissions, starts location service */
     protected abstract void assertLocation();
+
+    protected void updateUi() {
+        sunknown.setVisibility(View.GONE);
+        sunTime.setTimeZone(solarTime.toTimezoneString());
+        sunTime.setVisibility(View.VISIBLE);
+    }
 }
