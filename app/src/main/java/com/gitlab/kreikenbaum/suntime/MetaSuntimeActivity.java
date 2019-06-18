@@ -42,9 +42,6 @@ public abstract class MetaSuntimeActivity extends AppCompatActivity {
         layout = findViewById(R.id.layout_sun_time);
         sunTime = findViewById(R.id.tc_suntime);
         sunknown = findViewById(R.id.tv_suntime);
-        if (locationCache.getLocation() != null) {
-            solarTime = new SolarTime(locationCache.getLocation());
-        }
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -66,6 +63,15 @@ public abstract class MetaSuntimeActivity extends AppCompatActivity {
         super.onStart();
 
         assertLocation();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if ( locationCache.getLocation() != null ) {
+            updateUi();
+        }
     }
 
     /** asserts location permissions, starts location service */

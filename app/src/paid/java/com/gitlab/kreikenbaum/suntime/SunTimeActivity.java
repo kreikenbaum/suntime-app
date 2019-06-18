@@ -79,14 +79,11 @@ public class SunTimeActivity extends MetaSuntimeActivity
         }
     }
 
-
     @SuppressLint("MissingPermission")
     @Override public void onConnected(Bundle bundle) {
-        // Client is connected and ready to for use
         onLocationChanged(LocationServices.FusedLocationApi.getLastLocation(apiClient));
         LocationRequest request = LocationRequest.create()
                 .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
-//                .setInterval(1000 * 60 * 15)
                 .setInterval(1000)
                 .setFastestInterval(100)
                 .setSmallestDisplacement(100);
