@@ -52,15 +52,6 @@ public class SunTimeActivity extends MetaSuntimeActivity
         }
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        assertLocation();
-    }
-
-
-
     // as of https://stackoverflow.com/a/29815513/1587329
     @Override
     protected void onStop() {
@@ -73,7 +64,7 @@ public class SunTimeActivity extends MetaSuntimeActivity
     }
 
     /** asserts that some location is available */
-    private void assertLocation() {
+    protected void assertLocation() {
         apiClient = new GoogleApiClient.Builder(this)
             .addConnectionCallbacks(this)
             .addApi(LocationServices.API)

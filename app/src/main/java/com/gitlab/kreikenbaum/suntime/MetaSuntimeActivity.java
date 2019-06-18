@@ -26,6 +26,7 @@ public abstract class MetaSuntimeActivity extends AppCompatActivity {
     protected SolarTime solarTime;
     protected LocationCache locationCache;
 
+    /** sets up ui elements, onClick, location and suntime */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,4 +58,14 @@ public abstract class MetaSuntimeActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        assertLocation();
+    }
+
+    /** asserts location permissions, starts location service */
+    protected abstract void assertLocation();
 }

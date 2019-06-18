@@ -51,14 +51,6 @@ public class SunTimeActivity extends MetaSuntimeActivity implements
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-
-        assertLocation();
-    }
-
-
-    @Override
     protected void onResume() {
         super.onResume();
 
@@ -79,7 +71,7 @@ public class SunTimeActivity extends MetaSuntimeActivity implements
     }
 
     /** asserts that some location is available */
-    private void assertLocation() {
+    protected void assertLocation() {
         lostApiClient = new LostApiClient.Builder(this)
             .addConnectionCallbacks(this).build();
 
