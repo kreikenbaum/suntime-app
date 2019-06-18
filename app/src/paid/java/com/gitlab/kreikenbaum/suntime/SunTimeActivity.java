@@ -33,7 +33,7 @@ import com.google.android.gms.location.LocationServices;
 import com.gitlab.kreikenbaum.suntime.data.LocationCache;
 import com.gitlab.kreikenbaum.suntime.data.SolarTime;
 
-public class SunTimeActivity extends AppCompatActivity
+public class SunTimeActivity extends MetaSuntimeActivity
         implements GoogleApiClient.ConnectionCallbacks, LocationListener {
     private static final String LOG_TAG = SunTimeActivity.class.getSimpleName();
     private static final int LOC_CODE = 1344;

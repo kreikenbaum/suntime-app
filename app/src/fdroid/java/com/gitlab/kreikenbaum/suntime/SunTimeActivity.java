@@ -32,7 +32,7 @@ import com.mapzen.android.lost.api.LostApiClient;
 import com.gitlab.kreikenbaum.suntime.data.LocationCache;
 import com.gitlab.kreikenbaum.suntime.data.SolarTime;
 
-public class SunTimeActivity extends AppCompatActivity implements
+public class SunTimeActivity extends MetaSuntimeActivity implements
         LostApiClient.ConnectionCallbacks, LocationListener, LoadGeoIpTask.SunLocationListener {
     private static final String LOG_TAG = SunTimeActivity.class.getSimpleName();
     private static final int LOC_CODE = 1344;
