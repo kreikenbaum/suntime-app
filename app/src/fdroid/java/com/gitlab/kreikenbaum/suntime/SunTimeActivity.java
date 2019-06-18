@@ -34,16 +34,8 @@ import com.gitlab.kreikenbaum.suntime.data.SolarTime;
 
 public class SunTimeActivity extends MetaSuntimeActivity implements
         LostApiClient.ConnectionCallbacks, LocationListener, LoadGeoIpTask.SunLocationListener {
-    private static final String LOG_TAG = SunTimeActivity.class.getSimpleName();
-    private static final int LOC_CODE = 1344;
 
-    private CoordinatorLayout layout;
-    private TextClock sunTime;
-    private TextView sunknown;
-    private SolarTime solarTime;
     private LostApiClient lostApiClient;
-    private LocationCache locationCache;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -9,7 +9,6 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
@@ -35,16 +34,8 @@ import com.gitlab.kreikenbaum.suntime.data.SolarTime;
 
 public class SunTimeActivity extends MetaSuntimeActivity
         implements GoogleApiClient.ConnectionCallbacks, LocationListener {
-    private static final String LOG_TAG = SunTimeActivity.class.getSimpleName();
-    private static final int LOC_CODE = 1344;
 
-    private CoordinatorLayout layout;
-    private TextView sunknown;
-    private TextClock sunTime;
-    private SolarTime solarTime;
     private GoogleApiClient apiClient;
-    private LocationCache locationCache;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
