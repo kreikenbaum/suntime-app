@@ -50,15 +50,6 @@ public class SunTimeActivity extends MetaSuntimeActivity implements
         }
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        if ( locationCache.getLocation() != null ) {
-            updateUi();
-        }
-    }
-
     // as of https://stackoverflow.com/a/29815513/1587329
     @Override
     protected void onStop() {
