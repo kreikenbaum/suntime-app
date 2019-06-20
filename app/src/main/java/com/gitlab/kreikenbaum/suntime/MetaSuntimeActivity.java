@@ -18,7 +18,7 @@ import android.support.v7.widget.Toolbar;
 import com.gitlab.kreikenbaum.suntime.data.LocationCache;
 import com.gitlab.kreikenbaum.suntime.data.SolarTime;
 
-public abstract class MetaSuntimeActivity extends AppCompatActivity {
+public abstract class MetaSuntimeActivity extends MetaAllActivity {
     protected static final String LOG_TAG = "SuntimeActivity";
     protected static final int LOC_CODE = 1344;
 

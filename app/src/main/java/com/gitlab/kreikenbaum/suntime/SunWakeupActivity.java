@@ -14,12 +14,11 @@ import android.widget.TimePicker;
 
 import com.gitlab.kreikenbaum.suntime.data.Alarm;
 import com.gitlab.kreikenbaum.suntime.data.LocationCache;
-import com.gitlab.kreikenbaum.suntime.data.SolarTime;
 
 import java.util.TimeZone;
 
 
-public class SunWakeupActivity extends AppCompatActivity
+public class SunWakeupActivity extends MetaAllActivity
         implements TimePickerDialog.OnTimeSetListener {
     private CoordinatorLayout layout;
     private TextView sunTime;
