@@ -78,6 +78,9 @@ public abstract class MetaSuntimeActivity extends MetaAllActivity {
     protected abstract void assertLocation();
 
     protected void updateUi() {
+        if ( solarTime == null ) {
+            solarTime = new SolarTime(locationCache.getLocation());
+        }
         sunknown.setVisibility(View.GONE);
         sunTime.setTimeZone(solarTime.toTimezoneString());
         sunTime.setVisibility(View.VISIBLE);
