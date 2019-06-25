@@ -6,5 +6,5 @@
         android:title="Love it? Rate it!" />
     <item
         android:id="@+id/better"
-        android:title="Problem? Feedback!" />
+        android:title="Problem? Report it!" />
 </menu>
