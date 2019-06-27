@@ -15,4 +15,6 @@
     <string name="location_unknown">location unknown</string>
     <string name="alarm_unknown_location">please wait for location before setting alarm</string>
     <string name="alarm_set_to">Alarm set to</string>
+    <string name="love_it_rate_it">Love it? Rate it!</string>
+    <string name="problem_report_it">Problem? Report it!</string>
 </resources>

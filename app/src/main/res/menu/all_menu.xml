@@ -3,8 +3,8 @@
 
     <item
         android:id="@+id/plus"
-        android:title="Love it? Rate it!" />
+        android:title="@string/love_it_rate_it" />
     <item
         android:id="@+id/better"
-        android:title="Problem? Report it!" />
+        android:title="@string/problem_report_it" />
 </menu>
