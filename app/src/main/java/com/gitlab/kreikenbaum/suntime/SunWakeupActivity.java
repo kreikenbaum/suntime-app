@@ -2,18 +2,18 @@ package com.gitlab.kreikenbaum.suntime;
 
 import android.app.TimePickerDialog;
 import android.os.Bundle;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import androidx.appcompat.widget.Toolbar;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+
 import com.gitlab.kreikenbaum.suntime.data.Alarm;
 import com.gitlab.kreikenbaum.suntime.data.LocationCache;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.TimeZone;
 

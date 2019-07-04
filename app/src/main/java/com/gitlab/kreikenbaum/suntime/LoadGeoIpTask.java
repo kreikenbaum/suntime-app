@@ -2,8 +2,9 @@ package com.gitlab.kreikenbaum.suntime;
 
 import android.location.Location;
 import android.os.AsyncTask;
-import android.support.annotation.Nullable;
 import android.util.Log;
+
+import androidx.annotation.Nullable;
 
 import org.json.JSONException;
 import org.json.JSONObject;

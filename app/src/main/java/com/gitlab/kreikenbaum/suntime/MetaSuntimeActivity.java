@@ -3,20 +3,20 @@ package com.gitlab.kreikenbaum.suntime;
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+
+import androidx.appcompat.widget.Toolbar;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextClock;
 import android.widget.TextView;
-import android.support.v7.widget.Toolbar;
 
 
 import com.gitlab.kreikenbaum.suntime.data.LocationCache;
 import com.gitlab.kreikenbaum.suntime.data.SolarTime;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 public abstract class MetaSuntimeActivity extends MetaAllActivity {
     protected static final String LOG_TAG = "SuntimeActivity";
