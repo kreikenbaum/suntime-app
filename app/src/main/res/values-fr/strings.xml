@@ -16,5 +16,5 @@
     <string name="location_unknown">location inconnu</string>
     <string name="alarm_unknown_location">location inconnu, attendez s.v.p.</string>
     <string name="alarm_set_to">Réveil reglé à</string>
-    <string name="problem_report_it">Problème? Reportez!</string>
+    <string name="problem_report_it">Problème? Signalez!</string>
 </resources>
