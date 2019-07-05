@@ -16,4 +16,5 @@
     <string name="location_unknown">Ort unbekannt</string>
     <string name="alarm_unknown_location">Ort unbekannt, bitte warte</string>
     <string name="alarm_set_to">Alarm gesetzt auf</string>
+    <string name="problem_report_it">Problem? Sag Bescheid!</string>
 </resources>

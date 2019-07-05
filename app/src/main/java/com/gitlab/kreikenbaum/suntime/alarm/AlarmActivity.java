@@ -14,6 +14,7 @@ import com.gitlab.kreikenbaum.suntime.R;
 
 public class AlarmActivity extends Activity {
     private static long ALARM_DURATION = 10 * DateUtils.HOUR_IN_MILLIS;
+    static final String ALARM_TAG = "suntime:AlarmActivity";
 
     private PowerManager.WakeLock mWakeLock;
 
@@ -22,7 +23,7 @@ public class AlarmActivity extends Activity {
         super.onCreate(b);
         PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
         mWakeLock = pm.newWakeLock(PowerManager.SCREEN_BRIGHT_WAKE_LOCK |
-                PowerManager.ACQUIRE_CAUSES_WAKEUP | PowerManager.ON_AFTER_RELEASE, "AlarmActivity");
+                PowerManager.ACQUIRE_CAUSES_WAKEUP | PowerManager.ON_AFTER_RELEASE, ALARM_TAG);
         mWakeLock.acquire(ALARM_DURATION);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
 
