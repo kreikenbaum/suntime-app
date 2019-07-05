@@ -75,8 +75,8 @@ public class SunWakeupActivity extends MetaAllActivity
         alarm.setTime(this, hourOfDay, minute); // registers alarm
         showTimes();
         String message = getString(R.string.alarm_set_to)
-            + " " + alarm.toZoneTimeString() + " "
-            + "(" + TimeZone.getDefault().getID() + ")";
+            + " " + alarm.toZoneTimeString()
+            + " " + "(" + TimeZone.getDefault().getID() + ")";
         Snackbar.make(layout, message, Snackbar.LENGTH_SHORT).show();
     }
 
