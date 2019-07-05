@@ -66,7 +66,7 @@ public class AlarmController {
         PowerManager.WakeLock wl =
                 pm.newWakeLock(PowerManager.SCREEN_BRIGHT_WAKE_LOCK |
                         PowerManager.ACQUIRE_CAUSES_WAKEUP |
-                        PowerManager.ON_AFTER_RELEASE, AlarmActivity.ALARM_TAG;
+                        PowerManager.ON_AFTER_RELEASE, AlarmActivity.ALARM_TAG);
         wl.acquire(5000);
         context.startService(new Intent(context, AlarmService.class));
     }
