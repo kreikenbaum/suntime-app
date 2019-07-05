@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Sun Time</string>
-    <string name="action_settings">Settings</string>
     <string name="half_sun">half sun</string>
     <string name="half_clock">half clock</string>
     <string name="title_activity_sun_wakeup">Sun Wakeup</string>

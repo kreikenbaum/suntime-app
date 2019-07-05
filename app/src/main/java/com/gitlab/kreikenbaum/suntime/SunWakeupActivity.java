@@ -74,14 +74,10 @@ public class SunWakeupActivity extends MetaAllActivity
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
         alarm.setTime(this, hourOfDay, minute); // registers alarm
         showTimes();
-        StringBuilder sb = new StringBuilder(getString(R.string.alarm_set_to));
-        sb.append(" ")
-            .append(alarm.toZoneTimeString())
-            .append(" ")
-            .append("(")
-            .append(TimeZone.getDefault().getID())
-            .append(")");
-        Snackbar.make(layout, sb.toString(), Snackbar.LENGTH_SHORT).show();
+        String message = getString(R.string.alarm_set_to)
+            + " " + alarm.toZoneTimeString() + " "
+            + "(" + TimeZone.getDefault().getID() + ")";
+        Snackbar.make(layout, message, Snackbar.LENGTH_SHORT).show();
     }
 
     private void showTimes() {

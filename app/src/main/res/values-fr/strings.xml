@@ -4,7 +4,6 @@
     <string name="sun_alarm">soleil contenant le temps</string>
     <string name="zone_time">temps de zone</string>
     <string name="app_name">Temps solaire</string>
-    <string name="action_settings">Configuration</string>
     <string name="half_clock">demi-horloge</string>
     <string name="title_activity_sun_wakeup">Réveil solaire</string>
     <string name="alarm_clock_image">réveil</string>

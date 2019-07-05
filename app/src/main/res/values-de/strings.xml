@@ -12,7 +12,6 @@
     <string name="click_to_set_alarm">Klicke um Wecker zu setzen</string>
     <string name="click_to_clear_alarm">Klicke um Wecker zu loeschen</string>
     <string name="zone_time">Zonenzeit</string>
-    <string name="action_settings">Einstellungen</string>
     <string name="location_unknown">Ort unbekannt</string>
     <string name="alarm_unknown_location">Ort unbekannt, bitte warte</string>
     <string name="alarm_set_to">Alarm gesetzt auf</string>
